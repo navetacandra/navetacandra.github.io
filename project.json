@@ -1,0 +1,14 @@
+[
+    {
+        "name": "PhotoSheets",
+        "url": "https://photosheets.web.app",
+        "description": "Situs sosialisasi sederhana, dapat mengirim gambar dan/atau teks.",
+        "image": "./photosheets.jpg"
+    },
+    {
+        "name": "Erigo Store",
+        "url": "https://www.navetacand.my.id/erigo-store",
+        "description": "Situs belanja online statis, dengan Erigo sebagai contoh brand.",
+        "image": "./erigo.jpg"
+    }
+]

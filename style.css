@@ -1,0 +1,90 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+.w-24 {
+    width: 24px;
+    margin-right: .8em;
+    font-size: 1.5em;
+}
+
+.offcanvas-title,
+.nav-link {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+[data-bs-dismiss="offcanvas"] {
+    color: #fff;
+}
+
+#offcanvas-close-btn {
+    color: white !important;
+}
+
+.sidebar-dividen {
+    height: 1px;
+    border: 0;
+    border-top: 1.8px solid #fff;
+    padding: 0;
+}
+
+.flip-image {
+    position: relative;
+    animation: flipImage 1s 1 forwards;
+}
+
+.jumbotron img {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.nav-link.mobile {
+    color: rgba(255, 255, 255, .85);
+}
+
+.nav-link.mobile.active {
+    color: rgba(255, 255, 255, 1);
+}
+
+.jumbotron {
+    padding-top: 6rem;
+    background-color: #0D6EFD;
+}
+
+@keyframes flipImage {
+    to {
+        /* bottom: 0; */
+        transform: rotateY(0deg);
+    }
+}
+
+.scroll-up {
+    position: fixed;
+    width: 6vh;
+    height: 6vh;
+    bottom: 7%;
+    right: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(204, 204, 204, .85);
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+
+
+
+@media screen and (min-width: 991px) {
+    .offcanvas {
+        visibility: hidden;
+    }
+}

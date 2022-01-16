@@ -14,14 +14,15 @@
 </head>
 
 <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-primary shadow">
+    <div id="home"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary shadow">
         <div class="container">
             <a class="navbar-brand" href="#">Naveta Candra</a>
-            <button class="navbar-toggler" type="button" id="sidebar-toggle" data-bs-toggle="offcanvas"
+            <a class="navbar-toggler" type="button" id="sidebar-toggle" data-bs-toggle="offcanvas"
                 data-bs-target="#side-bar" aria-controls="side-bar" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -41,7 +42,8 @@
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="side-bar" aria-labelledby="side-barLabel">
+    <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="side-bar" data-bs-scroll="true"
+        data-bs-backdrop="false" aria-labelledby="side-barLabel">
         <div class="offcanvas-header mb-3">
             <h5 class="offcanvas-title" id="side-barLabel">Naveta Candra</h5>
             <button type="button" class="btn-close btn-close-white text-reset" id="offcanvas-close-btn"
@@ -77,9 +79,9 @@
 
 
 
-    <section class="jumbotron bg-primary text-center" id="home">
-        <img src="./img/naveta.jpg" alt="Naveta Candra Chairullah" width="200"
-            height="200" class="mb-5 rounded-circle img-thumbnail flip-image ">
+    <section class="jumbotron bg-primary text-center">
+        <img src="./img/naveta.jpg" alt="Naveta Candra Chairullah" width="200" height="200"
+            class="mb-5 rounded-circle img-thumbnail flip-image ">
         <h1 class="display-4">Naveta Candra Chairullah</h1>
         <p class="lead">Student</p>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

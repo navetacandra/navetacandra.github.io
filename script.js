@@ -11,13 +11,13 @@ let touchend = {
 
 
 let direction = ''
+
 function handleGesture() {
   let Ymovement = touchend.y - touchstart.y
   let validSlide = -20 < Ymovement ? Ymovement < 20 ? true : false : false
   if ((touchend.x - touchstart.x) < 50 && validSlide) direction = 'left'
   if ((touchend.x - touchstart.x) > 50 && validSlide) direction = 'right'
   if (touchend.x == touchstart.x) direction = ''
-  // console.log(-10 < Ymo
   sidebarToggle()
 }
 
@@ -37,7 +37,6 @@ document.addEventListener('touchend', e => {
 })
 
 function sidebarToggle() {
-  console.log(direction);
   if (!document.getElementsByClassName('offcanvas')[0].className.includes('show') && direction === 'right' && screen.width <= 991) {
     document.getElementById('sidebar-toggle').click()
   }
@@ -46,18 +45,20 @@ function sidebarToggle() {
   }
 }
 
-document.querySelectorAll('.nav-link.mobile').forEach(item => {
-  item.addEventListener('click', () => {
-    document.getElementById('offcanvas-close-btn').click()
-  })
-})
+function toHome() {
+  window.history.replaceState(null, '', '#home')
+  window.scrollTo(0, 0)
+}
 
 document.querySelectorAll('.nav-link').forEach(item => {
-  item.addEventListener('click', function () {
-    document.querySelectorAll('.nav-link').forEach(other => {
-      other.classList.remove('active')
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.nav-link').forEach(el => {
+      el.classList.remove('active')
     })
     this.classList.add('active')
+    if (document.getElementsByClassName('offcanvas')[0].className.includes('show')) {
+      document.getElementById('offcanvas-close-btn').click()
+    }
   })
 })
 
@@ -67,14 +68,8 @@ window.addEventListener('resize', function () {
   }
 })
 
-if (window.performance.getEntriesByType('navigation')[0].type === 'reload') {
-  window.history.replaceState(null, '', '/')
-}
-
-
 fetch('./project.json').then(e => e.json())
   .then(res => {
-  // console.log(res);
     let container = document.getElementById('project-container')
     res.forEach(v => {
       container.innerHTML += `
@@ -90,17 +85,13 @@ fetch('./project.json').then(e => e.json())
             </div>
     `
     })
-})
+  })
 
 document.getElementsByClassName('scroll-up')[0].addEventListener('click', () => {
-  window.scrollTo(0, 0)
+  toHome()
 })
 
-window.addEventListener('scroll', function () {
-  if (window.pageYOffset !== 0) {
-    document.getElementsByClassName('scroll-up')[0].style.visibility ='visible'
-  }
-  else if (window.pageYOffset === 0) {
-    document.getElementsByClassName('scroll-up')[0].style.visibility ='hidden'
-  }
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset === 0) document.getElementsByClassName('scroll-up')[0].style.visibility = 'hidden'
+  else document.getElementsByClassName('scroll-up')[0].style.visibility = 'visible'
 })

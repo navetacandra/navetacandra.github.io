@@ -794,7 +794,8 @@ video {
 }
 
 *,
-html {
+html,
+section {
   overflow-x: hidden;
 }
 
